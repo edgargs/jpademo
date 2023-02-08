@@ -1,3 +1,8 @@
+
+
+[Persist Recursive relationships with Hibernate](https://gist.github.com/jwgmeligmeyling/e409362ad3f3923a72a5efb42f92ff74)
+[Micronaut Data JPA Hibernate](https://micronaut-projects.github.io/micronaut-data/latest/guide/#hibernate)
+
 ## Micronaut 3.8.4 Documentation
 
 - [User Guide](https://docs.micronaut.io/3.8.4/guide/index.html)
