@@ -2,7 +2,7 @@ package com.gs.training.service
 
 import spock.lang.Specification
 
-import com.gs.training.model.*
+import com.gs.training.entity.*
 import com.gs.training.dao.*
 
 class PlantillaServiceMockSpec extends Specification {
@@ -19,7 +19,8 @@ class PlantillaServiceMockSpec extends Specification {
 
     void 'find all'() {
         given:
-        def plantilla = new Plantilla("PRUEBA 1")
+        def plantilla = new Plantilla()
+        plantilla.name = "PRUEBA 1"
         def lista = [plantilla]
         plantillaRepository.findAll() >> lista
         

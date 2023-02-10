@@ -5,7 +5,7 @@ import io.micronaut.data.repository.CrudRepository;
 
 import java.util.List;
 
-import com.gs.training.model.Plantilla;
+import com.gs.training.entity.Plantilla;
 
 @Repository
 public interface PlantillaRepository extends CrudRepository<Plantilla, Long> {

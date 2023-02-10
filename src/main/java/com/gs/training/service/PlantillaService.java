@@ -5,7 +5,7 @@ import jakarta.inject.Singleton;
 import java.util.List;
 
 import com.gs.training.dao.*;
-import com.gs.training.model.*;
+import com.gs.training.entity.*;
 
 @Singleton
 public class PlantillaService {
