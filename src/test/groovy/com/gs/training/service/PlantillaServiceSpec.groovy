@@ -59,30 +59,18 @@ class PlantillaServiceSpec extends Specification {
 
         def tabla = new Datos()
         tabla.tipo = "TABLA"
-        tabla.children = [col1, col2]
+        tabla.children = [col1, col2] //
 
         def plantilla = new Plantilla()
-        plantilla.name = "PRUEBA 1"
-        plantilla.datos = [tabla]
+        plantilla.name = "PRUEBA 2"
+        plantilla.datos = [tabla] //
 
         plantillaRepository.save(plantilla)
 
         when:        
-        def entity = service.findById(1L)
+        def entity = service.findById(plantilla.id)
 
         then:
-        entity.datos[0].children.size() == 2
-
-        //when:
-        //def entityDatos = datosRepository.findById(3L)
-
-        //then:
-        //entityDatos.get().parent.id == 2L
-
-        //when:
-        //def entityTabla = datosRepository.findById(2L)
-
-        //then:
-        //entityTabla.get().children.size() == 2
+        entity.datos[0].children.size() == 2 //
     }
 }
