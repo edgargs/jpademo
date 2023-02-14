@@ -18,14 +18,6 @@ class PlantillaServiceSpec extends Specification {
     @Inject
     PlantillaRepository plantillaRepository
 
-    void "find all"() {
-        when:
-        def all = service.findAll()
-
-        then:
-        all.size() == 0
-    }
-
     void "save plantilla"() {
         given:
         def plantilla = new Plantilla()
@@ -36,7 +28,21 @@ class PlantillaServiceSpec extends Specification {
 
         then:
         entity.id != null
-
+        println entity
     }
 
+    //@spock.lang.Ignore
+    void "find all"() {
+        given:
+        def plantilla = new Plantilla()
+        plantilla.name = "PRUEBA 1"
+
+        when:
+        def entity = plantillaRepository.save(plantilla)
+
+        def all = service.findAll()
+
+        then:
+        all.size() == 1
+    }
 }
