@@ -22,4 +22,8 @@ public class PlantillaService {
     public List<Plantilla> findAll() {
         return plantillaRepository.findAll();
     }
+
+    public Plantilla findById(Long id) {
+        return plantillaRepository.findById(id).get();
+    }
 }

@@ -21,8 +21,44 @@ public class Datos {
     @OneToMany(mappedBy = "parent", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Datos> children;
     
-    //TODO getters & setters
+    //getters & setters
     public Long getId() {
         return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Plantilla getPlantilla() {
+        return this.plantilla;
+    }
+
+    public void setPlantilla(Plantilla plantilla) {
+        this.plantilla = plantilla;
+    }
+
+    public String getTipo() {
+        return this.tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public Datos getParent() {
+        return this.parent;
+    }
+
+    public void setParent(Datos parent) {
+        this.parent = parent;
+    }
+
+    public List<Datos> getChildren() {
+        return this.children;
+    }
+
+    public void setChildren(List<Datos> children) {
+        this.children = children;
     }
 }

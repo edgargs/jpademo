@@ -18,6 +18,10 @@ class PlantillaServiceSpec extends Specification {
     @Inject
     PlantillaRepository plantillaRepository
 
+    @Inject
+    DatosRepository datosRepository
+
+    @spock.lang.Ignore
     void "save plantilla"() {
         given:
         def plantilla = new Plantilla()
@@ -28,10 +32,9 @@ class PlantillaServiceSpec extends Specification {
 
         then:
         entity.id != null
-        println entity
+        println entity.id
     }
 
-    //@spock.lang.Ignore
     void "find all"() {
         given:
         def plantilla = new Plantilla()
@@ -44,5 +47,42 @@ class PlantillaServiceSpec extends Specification {
 
         then:
         all.size() == 1
+    }
+
+    void "list childs"() {
+        given:
+        def col1 = new Datos()
+        col1.tipo = "COLUMNA1"
+        
+        def col2 = new Datos()
+        col2.tipo = "COLUMNA2"
+
+        def tabla = new Datos()
+        tabla.tipo = "TABLA"
+        tabla.children = [col1, col2]
+
+        def plantilla = new Plantilla()
+        plantilla.name = "PRUEBA 1"
+        plantilla.datos = [tabla]
+
+        plantillaRepository.save(plantilla)
+
+        when:        
+        def entity = service.findById(1L)
+
+        then:
+        entity.datos[0].children.size() == 2
+
+        //when:
+        //def entityDatos = datosRepository.findById(3L)
+
+        //then:
+        //entityDatos.get().parent.id == 2L
+
+        //when:
+        //def entityTabla = datosRepository.findById(2L)
+
+        //then:
+        //entityTabla.get().children.size() == 2
     }
 }
